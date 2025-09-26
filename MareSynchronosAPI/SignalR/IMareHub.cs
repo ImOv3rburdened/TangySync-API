@@ -88,4 +88,13 @@ public interface IMareHub
     Task GposeLobbyPushCharacterData(CharaDataDownloadDto charaDownloadDto);
     Task GposeLobbyPushPoseData(PoseData poseData);
     Task GposeLobbyPushWorldData(WorldData worldData);
+
+    System.Threading.Tasks.Task SendRtcOffer(string targetUid, string sdp);
+    System.Threading.Tasks.Task SendRtcAnswer(string targetUid, string sdp);
+    System.Threading.Tasks.Task SendRtcIceCandidate(string targetUid, string candidate, string? sdpMid, int? sdpMLineIndex);
+
+    // P2P / WebRTC signaling (server -> client)
+    System.Threading.Tasks.Task Client_RtcOffer(MareSynchronos.API.Data.UserData sender, string sdp);
+    System.Threading.Tasks.Task Client_RtcAnswer(MareSynchronos.API.Data.UserData sender, string sdp);
+    System.Threading.Tasks.Task Client_RtcIceCandidate(MareSynchronos.API.Data.UserData sender, string candidate, string? sdpMid, int? sdpMLineIndex);
 }

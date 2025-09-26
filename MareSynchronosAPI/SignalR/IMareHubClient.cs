@@ -58,4 +58,9 @@ public interface IMareHubClient : IMareHub
     void OnGposeLobbyPushCharacterData(Action<CharaDataDownloadDto> act);
     void OnGposeLobbyPushPoseData(Action<UserData, PoseData> act);
     void OnGposeLobbyPushWorldData(Action<UserData, WorldData> act);
+    void OnRtcOffer(Action<MareSynchronos.API.Data.UserData, string> act);
+    void OnRtcAnswer(Action<MareSynchronos.API.Data.UserData, string> act);
+    void OnRtcIceCandidate(Action<MareSynchronos.API.Data.UserData, string, string?, int?> act);
+
+
 }
